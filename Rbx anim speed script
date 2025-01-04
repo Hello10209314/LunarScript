@@ -18,7 +18,7 @@ text.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 text.Transparency = 0.5
 text.Position = UDim2.new(0.409, 0,0.387, 0)
 text.Size = UDim2.new(0, 250, 0, 30)
-text.Text = "�����ٶȸ�����"
+text.Text = "动画速度更改器"
 text.RichText = true
 text.TextColor3 = Color3.fromRGB(255, 255, 255)
 text.TextScaled = true
@@ -126,7 +126,7 @@ func.Transparency = 0.5
 func.Position = UDim2.new(0, 0,0, 0)
 func.Size = UDim2.new(0, 35, 0, 35)
 func.RichText = true
-func.Text = "��"
+func.Text = "关"
 func.TextColor3 = Color3.fromRGB(255, 0, 0)
 func.TextScaled = true
 func.TextTransparency = 0
@@ -149,7 +149,7 @@ end
 func.MouseButton1Down:Connect(function()
 	if togglefunc == false then
 		togglefunc = true
-		func.Text = "��"
+		func.Text = "开"
 		func.TextColor3 = Color3.fromRGB(0, 255, 0)
 		speedMultiplier = tonumber(speedBox.Text) or 2
 		isAnimating = true
@@ -158,7 +158,7 @@ func.MouseButton1Down:Connect(function()
 		if togglefunc == true then
 			togglefunc = false
 			isAnimating = false
-			func.Text = "��"
+			func.Text = "关"
 			func.TextColor3 = Color3.fromRGB(255, 0, 0)
 		end
 	end
