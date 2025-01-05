@@ -1,3 +1,3 @@
 idk
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dementiaenjoyer/homohack/main/loader.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hello10209314/MyScripts/refs/heads/main/ScriptHub.txt"))()
