@@ -1,0 +1,33 @@
+Script: 
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iRay888/wapus/refs/heads/main/loader.lua"))()
+
+***********************************************************************************************************************************************
+
+If you are in a quarantine server, use the server browser button to get to a production server.
+
+Execute this first: 
+
+setfflag("DebugRunParallelLuaOnMainThread", "True")
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
+
+
+Then when the game is loaded, execute this: 
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iRay888/wapus/refs/heads/main/source.lua"))()
+
+
+********************************************************************************************************************************************
+** ALTERNATIVE METHOD **
+
+Download Bloxstrap from https://bloxstraplabs.com/
+ 
+Navigate to engine settings, then scroll down and click fast flag editor, and click I know what I'm doing
+ 
+Click add new, set the name as FFlagDebugRunParallelLuaOnMainThread and the value as True and click ok
+ 
+Click save
+ 
+Launch roblox with Bloxstrap and execute this script:
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iRay888/wapus/refs/heads/main/source.lua"))()
