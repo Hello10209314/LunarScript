@@ -1,0 +1,57 @@
+if not game:IsLoaded() then
+   game.Loaded:Wait();
+end
+
+local replicated_storage = game:GetService("ReplicatedStorage");
+local camera = workspace.CurrentCamera;
+local modules = {}; do
+    for _, module in replicated_storage.module:GetDescendants() do
+        if (string.find(module.ClassName, "Script")) then
+            modules[module.Name] = module;
+        end
+    end
+end
+
+local caster = require(modules.caster); -- important (bullet casting)
+local stats = require(modules.shared_state).SHARED_STATE; -- some cool stuff in here, table.foreach to check it out
+local ray_casts = require(modules.parallel_raycast); -- not as important, their raycasts
+
+local get_closest_player = function()
+    local closest_distance = 300;
+    local closest_player = nil;
+    
+    for _, player in workspace.characters:GetChildren() do
+        if (player:FindFirstChild("hitbox") == nil) then
+            continue;
+        end
+
+        local center = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 2);
+        local position, on_screen = camera:WorldToViewportPoint(player.hitbox.Position);
+
+        if (on_screen == false) then
+            continue;
+        end
+
+        local distance = (center - Vector2.new(position.X, position.Y)).Magnitude;
+
+        if (distance > closest_distance) then
+            continue;
+        end
+
+        closest_distance = distance;
+        closest_player = player;
+    end
+    return closest_player;
+end
+
+--local projectiles = getupvalue(caster.fire_server, 5); -- (all alive projectiles r stored here, might do something with this in the future)
+old_fire_server = hookfunction(caster.fire, function(_, origin_pos, direction, data, ...)
+    local closest_player = get_closest_player();
+
+    if (closest_player) then
+        origin_pos += Vector3.new(0, 30, 0); -- bullets fire from higher up, pretty op..
+        direction = (closest_player.head.Position - origin_pos).Unit * 1000;
+    end
+
+    return old_fire_server(_, origin_pos, direction, data, ...);
+end)
