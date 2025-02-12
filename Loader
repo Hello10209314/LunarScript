@@ -1,1 +1,2 @@
 -- DarkHub Loader
+loadstring(game:HttpGet("", true))()
