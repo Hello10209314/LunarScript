@@ -6,11 +6,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Hello10209314/MyScrip
 
 -- 更新日志
 
-2025/2/14 更新了DarkHub v0.2内容：
+2025/2/14 更新了DarkHub v0.2内容:
 更新了无减速
 
-2025/2/?? 发布了DarkHub v0.1内容：
+2025/2/?? 发布了DarkHub v0.1内容:
 发布了DarkHub这个脚本
 
-2025/??/?? 更新了6の脚本中心 v1.0内容：
+2025/??/?? 更新了6の脚本中心 v1.0内容:
 我忘了:/
